@@ -1,0 +1,102 @@
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Sign Up</title>
+        <link rel="stylesheet" type="text/css" href="createaccount.css">
+    </head>
+
+    <body>
+
+        <form method="post" action="create.php">
+            <div class="login-inputs-div">
+                <h1 style="color: white">Welcome to SimplyBook</h1>
+                <input class="login-inputs" type="text" name="username" pattern="[A-Za-z0-9]+" placeholder="Username"/>
+                <input class="login-inputs" type="password" name="password" pattern="(?=.*\d)(?=.*[A-Za-z])[A-Za-z0-9]{6,15}" placeholder="Password"/>
+                <div class="login-buttons-div">
+                    <input style="color: white; background-color: rgba(255, 102, 110, 1)" onclick="location.href='index.html'" class="login-buttons" type="button" value="Back" />
+                    <input onclick="validateInput(event)" style="background-color: rgba(221,221,221, 1)" class="login-buttons" type="submit" value="Sign up" />
+                </div>
+            </div>
+        </form>
+
+        </form>
+    </body>
+
+    <script>
+        function validateInput(e) {
+
+            let username = document.getElementsByName("username")[0];
+            let password = document.getElementsByName("password")[0];
+
+
+            if (username.value == "") {
+                alert("Username cannot be empty!");
+                e.preventDefault();
+            }
+            else if (password.value == "") {
+                alert("Password cannot be empty!");
+                e.preventDefault();
+            }
+            else if(username.value.length < 3) {
+                alert("Username must be longer than 2 characters");
+                e.preventDefault();
+            }
+            else if(username.validity.patternMismatch) {
+                alert("Username can consist of only characters and numbers");
+                e.preventDefault();
+            }
+            else if(password.validity.patternMismatch) {
+                alert("The length of the password must be between 6 to 15 characters\n" +
+                    "and it must consist of only alphanumerical characters with at least one alphabet and one numerical\n" +
+                    "character");
+                e.preventDefault();
+            }
+
+        }
+    </script>
+
+    <style>
+        .login-inputs {
+            height: 60px;
+            width: 350px;
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+
+        .login-buttons {
+            margin: 5px;
+            width: 100%;
+            height: 60px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .login-buttons-div {
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+            height: auto;
+        }
+
+        .login-inputs-div {
+            position: fixed;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 350px;
+            margin: auto;
+            align-items: center;
+            background-color: rgba(0,0,0,0.75);
+        }
+
+        html {
+            background: url(images/theater.jpg) no-repeat center center fixed;
+        }
+
+    </style>
+
+</html>

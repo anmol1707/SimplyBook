@@ -1,0 +1,82 @@
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+
+    <body>
+        <form method="post" action="verifyLogin.php">
+            <div class="login-inputs-div">
+                <h1 style="color: white">Simply Book</h1>
+                <input class="login-inputs" type="text" name="username" placeholder="Username" required/>
+                <input class="login-inputs" type="password" name="password" placeholder="Password" required/>
+                <div class="login-buttons-div">
+                    <input onclick="validateInput(event)" style="color: white; background-color: rgba(255, 102, 110, 1)" class="login-buttons" type="submit" value="SUBMIT" />
+                    <input onclick="location.href='createaccount.html'" class="login-buttons" style="background-color: rgba(221,221,221, 1)" type="button" value="Create an account" />
+                </div>
+            </div>
+        </form>
+        <script>
+        </script>
+
+    </body>
+
+    <script>
+        function validateInput(e) {
+            if (document.getElementsByName("username")[0].value.trim() == "") {
+                alert("Username cannot be empty or only spaces!");
+                e.preventDefault();
+            }
+            else if (document.getElementsByName("password")[0].value.trim() == "") {
+                alert("Password cannot be empty or only spaces!");
+                e.preventDefault();
+            }
+        }
+    </script>
+
+    <style>
+        .login-inputs {
+            height: 60px;
+            width: 350px;
+            margin: 0 0 10px 0;
+            font-size: 20px;
+        }
+
+        .login-buttons {
+            margin: 5px;
+            width: 100%;
+            height: 60px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .login-buttons-div {
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+            height: auto;
+        }
+
+        .login-inputs-div {
+            position: fixed;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            height: 350px;
+            margin: auto;
+            align-items: center;
+            background-color: rgba(0,0,0,0.75);
+        }
+
+        html {
+            background: url(images/theater.jpg) no-repeat center center fixed;
+        }
+
+    </style>
+
+</html>
